@@ -38,8 +38,7 @@ class CursoController extends Controller
     }
 
     public function update(Request $request, $id) {
-        if (Curso::where('id', $id)->exists()) {
-            $curso = Curso::find($id);
+        if (!empty($curso = Curso::find($id))) {
             $curso->nome = is_null($request->nome) ? $curso->nome : $request->nome;
             $curso->anos = is_null($request->anos) ? $curso->anos : $request->anos;
             $curso->coordenador = is_null($request->coordenador) ? $curso->coordenador : $request->coordenador;

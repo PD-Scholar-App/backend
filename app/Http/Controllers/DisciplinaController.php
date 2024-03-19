@@ -38,13 +38,10 @@ class DisciplinaController extends Controller
     }
 
     public function update(Request $request, $id) {
-        if (Disciplina::where('id', $id)->exists()) {
-            $disciplina = Disciplina::find($id);
-            $disciplina->nome = is_null($request->nome) ? $disciplina->nome : $request->nome;
-            $disciplina->anos = is_null($request->anos) ? $disciplina->anos : $request->anos;
-            $disciplina->coordenador = is_null($request->coordenador) ? $disciplina->coordenador : $request->coordenador;
-            $disciplina->tipo = is_null($request->tipo) ? $disciplina->tipo : $request->tipo;
-            //$disciplina->curso = $disciplina->cursos()->sync($disciplina->curso);
+        if (!empty($disciplina = Disciplina::find($id))) {
+            $disciplina->nome = $request->nome;
+            $disciplina->tipo = $request->tipo;
+            $disciplina->etcs = $request->etcs;
             $disciplina->save();
             return response()->json([
                 "message" => "Disciplina atualizada!"
