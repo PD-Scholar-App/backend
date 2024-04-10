@@ -1,7 +1,7 @@
 # Stage 1: Build PHP and Apache
 FROM php:8.2-apache AS builder
 RUN apt-get update
-RUN apt-get install -y --no-cache libzip-dev zip
+RUN apt-get clean && apt-get install -y libzip-dev zip
 RUN docker-php-ext-install pdo_mysql zip
 RUN a2enmod rewrite
 
