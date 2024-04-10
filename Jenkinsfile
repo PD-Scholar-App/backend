@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                         sh '''
-                        image_name="a2022113664/schoolar-frontend:latest"
+                        image_name="a2022113664/schoolar-backend:latest"
                         
                         docker build -t $image_name -f Dockerfile .
                         docker push $image_name
