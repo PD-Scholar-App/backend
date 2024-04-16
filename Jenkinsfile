@@ -20,7 +20,7 @@ pipeline {
                 }
             }
         }
-        stage('Build and Publish FE') {
+        stage('Build and Publish BE') {
             steps {
                 script {
                         sh '''
