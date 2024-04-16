@@ -35,9 +35,3 @@ RUN composer install
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-
-ENV DB_HOST=127.0.0.1
-ENV DB_PORT=3306
-ENV DB_DATABASE=scholar
-ENV DB_USERNAME=scholar_user
-ENV DB_PASSWORD=scholar_password
